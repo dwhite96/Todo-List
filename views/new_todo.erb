@@ -1,0 +1,12 @@
+<h2>Add a Todo Item</h2>
+<form method="POST" action="/todos">
+  <label>Title:
+    <input type="text" name="todo[title]" value="<%= @todo.title %>" />
+  </label><br />
+
+  <label>Description:
+    <textarea name="todo[description]"><%= @todo.description %></textarea>
+  </label><br />
+
+  <button>Create the Todo!</button>
+</form>
