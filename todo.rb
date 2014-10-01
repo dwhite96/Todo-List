@@ -58,3 +58,36 @@ post "/todos" do
   end
 end
 
+get "/todos/:id" do
+  show_params(params)
+  todo_id = params[:id]
+  @todo = Todo.get(todo_id)
+  erb :todo_description
+end
+
+get "/todos/:id/update" do
+  show_params(params)
+  todo_id = params[:id]
+  @todo = Todo.get(todo_id)
+  erb :todo_update
+end
+
+put "/todos/:id/update" do
+  show_params(params)
+  todo_update = params[:id]
+  @todo = Todo.get(todo_update)
+  @todo.update(params["todo"])
+  if @todo.saved?
+    redirect "/"
+  else
+    erb :todo_description
+  end
+end
+
+delete "/todos/:id" do
+  show_params(params)
+  todo_id = params[:id]
+  @todo = Todo.get(todo_id)
+  @todo.destroy
+  redirect "/"
+end

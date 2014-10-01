@@ -1,0 +1,13 @@
+<h2>Update Todo</h2>
+<form method="POST" action="/todos/<%= @todo.id %>/update">
+  <input type="hidden" name="_method" value="PUT">
+  <label>Title:
+    <input type="text" name="todo[title]" value="<%= @todo.title %>" />
+  </label><br />
+
+  <label>Description:
+    <textarea name="todo[description]"><%= @todo.description %></textarea>
+  </label><br />
+
+  <button>Update this Todo</button>
+</form>

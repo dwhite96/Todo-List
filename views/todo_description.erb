@@ -1,0 +1,23 @@
+<h2><%= @todo.title %></h2>
+
+<label>Description:
+  <%= @todo.description %>
+</label><br />
+
+
+<form method="GET" action="/todos/<%= @todo.id %>/update">
+  <button>Update this Todo</button>
+</form>
+
+
+<form method="POST" action="/todos/<%= @todo.id %>">
+  <input type="hidden" name="_method" value="DELETE">
+  <button>Delete this Todo</button>
+</form>
+
+
+<!--
+<form method="GET" action="/">
+  <button>Home Page</button>
+</form>
+-->
